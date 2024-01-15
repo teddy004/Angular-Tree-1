@@ -1,4 +1,4 @@
-# Perago Information System
+
 ## Angular Task
 
 ### Requirement
