@@ -1,0 +1,65 @@
+/* positions.component.scss */
+
+/* Style for the "Add User" and "Update User" buttons */
+button.btn-add {
+  background-color: #4caf50; /* Green */
+  color: white;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-right: 8px;
+}
+
+/* Style for the "Delete" button */
+button.btn-delete {
+  background-color: #f44336; /* Red */
+  color: white;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-right: 8px;
+}
+
+/* Style for the "Edit" button */
+button.btn-edit {
+  background-color: #2196f3; /* Blue */
+  color: white;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Style for the "Add User" button */
+button.btn-add-user {
+  background-color: #ff9800; /* Orange */
+  color: white;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-right: 8px;
+}
+
+/* Style for the "Update User" button */
+button.btn-update-user {
+  background-color: #2196f3; /* Blue */
+  color: white;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-right: 8px;
+}
+/* Assuming your button class is "btn" */
+.btn.btn-sm {
+  padding: 0.5rem 1rem;
+  font-size: 0.75rem;
+}
+
+/* Optional: To add a margin between buttons */
+.btn.btn-sm + .btn.btn-sm {
+  margin-left: 0.5rem;
+}

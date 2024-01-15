@@ -1,0 +1,22 @@
+footer {
+  background-color: rgb(31 41 55 / var(--tw-bg-opacity));
+
+  --tw-bg-opacity: 1;
+  color: #ffffff;
+  position:fixed;
+  bottom: 0;
+  z-index: 100;
+
+  width: 100%;
+}
+.list-reset li {
+  margin-bottom: 0.5rem;
+}
+
+.list-reset li a {
+  color: #ffffff;
+}
+
+.list-reset li a i {
+  font-size: 1.25rem;
+}

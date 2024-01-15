@@ -1,0 +1,79 @@
+<div class="container mx-auto flex justify-center">
+
+  <div class="container mx-auto" style="max-height: 400px; overflow: auto;">
+    <h1 class="text-2xl font-bold mb-4 text-center">Positions List</h1>
+    <table class="table w-full table-bordered table-hover table-striped border border-gray-400">
+      <thead>
+        <tr>
+          <th class="px-4 py-2 text-gray-800 text-center">Name</th>
+          <th class="px-4 py-2 text-gray-800 text-center">Position</th>
+          <th class="px-4 py-2 text-gray-800 text-center">Parent</th>
+          <th class="px-4 py-2 text-gray-800 text-center">Edit</th>
+          <th class="px-4 py-2 text-gray-800 text-center">Delete</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let employee of employees$ | async; index as i">
+          <td class="px-4 py-2 text-center">{{employee.name}}</td>
+          <td class="px-4 py-2 text-center">{{employee.position}}</td>
+          <td class="px-4 py-2 text-center">{{employee.parentId}}</td>
+          <td class="px-4 py-2 text-center">
+            <button nz-button nzType="primary"  (click)="editUser(i)">
+              <span nz-icon nzType="edit" nzTheme="outline"></span>
+              </button>
+          </td>
+          <td class="px-4 py-2 text-center">
+            <button nz-button nzType="primary" nzDanger (click)="deleteUser(employee.id)">
+              <span nz-icon nzType="delete" nzTheme="outline"></span></button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div *ngIf="showRegistrationForm" class="box mx-auto mt-4 p-8 border rounded-md shadow-lg column-4"> 
+    <div *ngIf="userForm">
+      <form  nz-form (submit)="addUser()" [formGroup]="userForm" class="flex flex-col">
+        <section class="border border-gray-300 rounded-md p-6 mb-6">
+          <h2 class="text-xl mb-4 font-bold text-center">Position Registration Form</h2>
+          <nz-form-item>
+            <nz-form-label [nzSm]="9" [nzXs]="24" nzRequired nzFor="description" nzLabelAlign="right" nzLabelAlign="right"  >Name</nz-form-label>
+            <nz-form-control  nzErrorTip="This Field is Required!">
+              <input nz-input formControlName="name" placeholder="Name" id="description" class="w-full px-2 py-2 mb-2 rounded-md border-2 border-blue-400 focus:ring-blue-500 focus:border-blue-500" />
+            </nz-form-control>
+          </nz-form-item>
+          <nz-form-item>
+            <nz-form-label [nzSm]="9" [nzXs]="24" nzRequired nzFor="position" nzLabelAlign="right" >Position</nz-form-label>
+            <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="This Field is Required!">
+              <input nz-input formControlName="position" placeholder="Position" id="description" class="w-full px-2 py-2 mb-2 rounded-md border-2 border-blue-400 focus:ring-blue-500 focus:border-blue-500" />
+            </nz-form-control>
+          </nz-form-item>
+         
+
+          <nz-form-label [nzSm]="9" [nzXs]="24" nzRequired nzFor="parentId" nzLabelAlign="right" >Parent</nz-form-label>
+          <nz-select formControlName="parentId" nzAllowClear nzPlaceHolder="Choose Parent">
+            <nz-option *ngFor="let employee of employees" nzValue={{employee.id}} nzLabel={{employee.name}}> {{ employee.name }}</nz-option>
+          </nz-select>
+
+
+        </section>
+        <div > 
+          <nz-form-control [nzSm]="9" [nzXs]="24" [nzSpan]="14" [nzOffset]="6">
+            <button  nz-button nzType="primary" *ngIf="editIndex === null"  >Submit</button> 
+          </nz-form-control>
+          
+          <nz-form-control  nzLabelAlign="left"  [nzSm]="9" [nzXs]="24" [nzSpan]="14" [nzOffset]="6">
+            <button nz-button nzType="primary" *ngIf="editIndex !== null"  (click)="updateUser()">Update Position</button>
+          </nz-form-control>
+        </div>
+      </form>
+    </div>
+  </div>
+
+</div>
+
+ 
+ <div class="flex justify-center mt-4">
+  <button nz-button nzType="default" (click)="showForm()">
+    <span nz-icon nzType="user-add" nzTheme="outline"></span>
+    Add Position</button>
+</div>
